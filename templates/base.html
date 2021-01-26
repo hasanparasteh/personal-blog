@@ -10,16 +10,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!--SEO-->
   {% block seo %}
-    <meta name="description" content="This is my portfolio or resume website and also a blog that I share my content about software development.">
-    <meta name="keywords" content="Programming, Software Development, Clean Code, Iranian Developers, Ir Programming, web design, web developer, backend developer, python, rust, javascript">
-    <meta name="author" content="Hasan Parasteh">
+  <meta name="description"
+    content="This is my portfolio or resume website and also a blog that I share my content about software development.">
+  <meta name="keywords"
+    content="Programming, Software Development, Clean Code, Iranian Developers, Ir Programming, web design, web developer, backend developer, python, rust, javascript">
+  <meta name="author" content="Hasan Parasteh">
 
-    <meta property="og:title" content="Hasan Parasteh Resume" />
-    <meta property="og:description" content="This is my portfolio or resume website and also a blog that I share my content about software development." />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{{request.path}}" />
-    <meta property="og:image" content="https://avatars0.githubusercontent.com/u/42239446?s=460&u=b87aeef1fb63c0cf1faaae784c53d5a408857810&v=4" />
+  <meta property="og:title" content="Hasan Parasteh Resume" />
+  <meta property="og:description"
+    content="This is my portfolio or resume website and also a blog that I share my content about software development." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{{request.path}}" />
+  <meta property="og:image"
+    content="https://avatars0.githubusercontent.com/u/42239446?s=460&u=b87aeef1fb63c0cf1faaae784c53d5a408857810&v=4" />
   {% endblock seo %}
   <meta name="geo.region" content="IR-07" />
   <meta name="geo.placename" content="Tehran" />
@@ -31,19 +35,36 @@
 
   <!--CSS-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@300;400;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/style.min.css' %}" />
 </head>
 
 <body {% block body_class %}{% endblock %}>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="/">Hasan Parasteh</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
   <div class="container">{% block content %} {% endblock content %}</div>
 
   <footer class="container">
-      <div class="row py-3">
-        <div class="col-12">
-          <p class="text-center">&copy; All Rights Reserved To Hasan Parasteh.</p>
-        </div>
+    <div class="row py-3">
+      <div class="col-12">
+        <p class="text-center">&copy; All Rights Reserved To Hasan Parasteh.</p>
       </div>
+    </div>
   </footer>
   <!--Scripts-->
   <script src="{% static 'js/bundle.min.js' %}"></script>
