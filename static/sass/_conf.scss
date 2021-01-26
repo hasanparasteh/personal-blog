@@ -1,0 +1,26 @@
+$theme-colors:(
+    "primary": #1A3DED,
+    "secondary": #FCDD28,
+    "special": #B00775,
+    "dark": #000
+);
+
+$body-bg: #F5F2E0;
+$body-color: lighten(#111218, 20%);
+
+$title-color: #111218;
+
+$font-header: 'Poppins', sans-serif;
+$font-body: 'Open Sans', sans-serif;
+
+$border-radius: .2rem;
+
+body{
+    font-family: $font-body;
+    font-weight: normal;
+}
+h1,h2,h3,h4,h5,h6{
+    color: $title-color;
+    font-family: $font-header;
+    font-weight: bold;
+}
