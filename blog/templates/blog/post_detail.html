@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{post.title}}
+{% endblock title %}
+
+{% block seo %}
+    <meta name="description" content="{{post.content|truncatewords:60|striptags }}">
+    <meta name="keywords" content="{{post.keywords}}">
+    <meta name="author" content="{{post.created_by.email}}">
+
+    <meta property="og:title" content="{{post.title}}" />
+    <meta property="og:description" content="{{post.content|truncatewords:60|striptags }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{{request.path}}" />
+    <meta property="og:image" content="/media/{{post.image}}" />
+{% endblock seo %}
+
+{% block content %}
+    <div class="row my-5">
+    {% if post.status == 1 %}
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="border-right border-left">
+                {% if post.image %}
+                    <div>
+                        <img class="img-fluid d-block mx-auto rounded-top" src="/media/{{post.image}}" alt="{{post.title}}">
+                    </div>
+                {% endif %}
+                <div class="px-5 py-2">
+                    <h2>{{post.title}}</h2>
+                    {% if post.subtitle %} <h6>{{post.subtitle}}</h6> {% endif %}
+                    <hr>
+                    {{post.content|safe}}
+                </div>
+            </div>
+        </div>
+    {%endif %}
+    </div>
+{% endblock content %}

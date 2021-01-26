@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Latest Posts
+{% endblock title %}
+
+
+{% block seo %}
+    <meta name="description" content="There are my blog posts">
+    <meta name="keywords" content="Programming, Software Development, Clean Code, Iranian Developers, Ir Programming, web design, web developer, backend developer, python, rust, javascript">
+    <meta name="author" content="Hasan Parasteh">
+
+    <meta property="og:title" content="Hasan Parasteh Blog" />
+    <meta property="og:description" content="I share my content about software development here." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{{request.path}}" />
+    <meta property="og:image" content="https://avatars0.githubusercontent.com/u/42239446?s=460&u=b87aeef1fb63c0cf1faaae784c53d5a408857810&v=4" />
+{% endblock seo %}
+
+{% block content %}
+    <div class="row">
+    {% for post in posts %}
+        {% if post.status == 1 %}
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="my-5 shadow-sm rounded border border">
+                    {% if post.image %}
+                        <div>
+                            <img class="img-fluid w-100 rounded-top" src="/media/{{post.image}}" alt="{{post.title}}">
+                        </div>
+                    {% endif %}
+                    <div class="p-5">
+                        <h2>{{post.title}}</h2>
+                        {% if post.subtitle %} <h6>{{post.subtitle}}</h6> {% endif %}
+                        <hr>
+                        <p>{{post.content|truncatewords:60|safe}}</p>
+                        <div class="text-right">
+                            <a href="/blog/{{post.slug}}" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {%endif %}
+    {%endfor %}
+    </div>
+{% endblock content %}
