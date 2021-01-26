@@ -40,9 +40,9 @@ function buildSass() {
             "uglyComments": true
         }))
         // @ts-ignore
-        // .pipe(purgecss({
-        //     content:['*.html', '*/*.html', '*/*/*.html']
-        // }))
+        .pipe(purgecss({
+            content:['templates/base.html', "blog/templates/blog/post_list.html", "blog/templates/blog/post_detail.html"]
+        }))
         .pipe(rename({
             extname: '.min.css'
         }))
