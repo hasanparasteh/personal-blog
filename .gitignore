@@ -1,0 +1,15 @@
+.vscode/
+
+env/
+venv/
+
+node_modules/
+
+migrations/
+__pycache__/
+
+staticfiles/
+dist/
+media/*
+
+db.sqlite3
