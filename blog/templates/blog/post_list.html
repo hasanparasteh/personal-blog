@@ -20,32 +20,35 @@
 {% endblock seo %}
 
 {% block content %}
-    <div class="row">
+    <div class="row flex-wrap">
     {% for post in posts %}
         {% if post.status == 1 %}
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="my-5 shadow-sm rounded border border">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="d-flex flex-column justify-content-between h-100 shadow-sm rounded border border">
                     {% if post.image %}
                         <div>
                             <img class="img-fluid w-100 rounded-top" src="/media/{{post.image}}" alt="{{post.title}}">
                         </div>
                     {% endif %}
-                    <div class="p-5">
-                        <div class="clearfix">
-                            <div class="float-left">
-                                <h2>{{post.title}}</h2>
-                                {% if post.subtitle %} <h6>{{post.subtitle}}</h6> {% endif %}
-                            </div>
-                            <div class="float-right text-muted">
-                                <i class="fas fa-clock"></i> {{post.created_on}} <br/>
-                                <i class="fas fa-user"></i> {{post.created_by.username}}
-                            </div>
-                        </div>
-                        <p class="text-muted small float-right ml-3 mt-1">Time to read: {{post.get_readtime}}</p>
+                    <div class="py-2 px-4">
+                        <h2>{{post.title}}</h2>
+                        {% if post.subtitle %} <h6>{{post.subtitle}}</h6> {% endif %}
+                        <p class="text-muted small float-right ml-3 mb-0">Time to read: {{post.get_readtime}}</p>
                         <hr>
-                        <p>{{post.content|truncatewords:60|safe}}</p>
+                        <p class="text-justify">{{post.content|truncatewords:50|striptags}}</p>
                         <div class="text-right">
-                            <a href="{{post.slug}}" class="btn btn-primary">Read More</a>
+                            <a href="/{{post.slug}}" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                    <div class="border-top d-flex justify-content-around text-muted py-3">
+                        <div>
+                            <i class="fas fa-clock"></i> {{post.created_on}} <br/>
+                        </div>
+                        <div>
+                            <i class="fas fa-user"></i> {{post.created_by.username}}
+                        </div>
+                        <div>
+                            <i class="fas fa-code-branch"></i> <a class="text-muted" href="/category/{{post.category.slug}}">{{post.category}}</a>
                         </div>
                     </div>
                 </div>
