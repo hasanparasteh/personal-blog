@@ -1,3 +1,4 @@
+import readtime
 from django.db import models
 from tinymce import models as tinymce_models
 
@@ -42,6 +43,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_readtime(self):
+        result = readtime.of_text(self.content)
+        return result.text
 
 
 class Category(models.Model):

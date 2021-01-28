@@ -14,7 +14,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{{request.path}}" />
-    <meta property="og:image" content="/media/{{post.image}}" />
+    <meta property="og:image" content="http://{{ request.META.HTTP_HOST }}/media/{{post.image}}" />
 {% endblock seo %}
 
 {% block content %}
@@ -28,8 +28,17 @@
                     </div>
                 {% endif %}
                 <div class="px-5 py-2">
-                    <h2>{{post.title}}</h2>
-                    {% if post.subtitle %} <h6>{{post.subtitle}}</h6> {% endif %}
+                    <div class="clearfix">
+                        <div class="float-left">
+                            <h2>{{post.title}}</h2>
+                            {% if post.subtitle %} <h6>{{post.subtitle}}</h6> {% endif %}
+                        </div>
+                        <div class="float-right text-muted">
+                            <i class="fas fa-clock"></i> {{post.created_on}} <br/>
+                            <i class="fas fa-user"></i> {{post.created_by.username}}
+                        </div>
+                    </div>
+                    <p class="text-muted small float-right ml-3 mt-1">Time to read: {{post.get_readtime}}</p>
                     <hr>
                     {{post.content|safe}}
                 </div>

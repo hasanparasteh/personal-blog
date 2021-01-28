@@ -31,8 +31,17 @@
                         </div>
                     {% endif %}
                     <div class="p-5">
-                        <h2>{{post.title}}</h2>
-                        {% if post.subtitle %} <h6>{{post.subtitle}}</h6> {% endif %}
+                        <div class="clearfix">
+                            <div class="float-left">
+                                <h2>{{post.title}}</h2>
+                                {% if post.subtitle %} <h6>{{post.subtitle}}</h6> {% endif %}
+                            </div>
+                            <div class="float-right text-muted">
+                                <i class="fas fa-clock"></i> {{post.created_on}} <br/>
+                                <i class="fas fa-user"></i> {{post.created_by.username}}
+                            </div>
+                        </div>
+                        <p class="text-muted small float-right ml-3 mt-1">Time to read: {{post.get_readtime}}</p>
                         <hr>
                         <p>{{post.content|truncatewords:60|safe}}</p>
                         <div class="text-right">

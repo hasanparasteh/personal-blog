@@ -29,6 +29,7 @@ class PostAdmin(admin.ModelAdmin):
                         "category",
                         "image",
                         "status",
+                        "keywords",
                     )
                 ),
             },
