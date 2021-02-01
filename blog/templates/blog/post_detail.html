@@ -27,11 +27,11 @@
                         <img class="img-fluid d-block mx-auto rounded-top" src="/media/{{post.image}}" alt="{{post.title}}">
                     </div>
                 {% endif %}
-                <div class="px-5 py-2">
+                <div class="px-3 py-2 px-lg-5">
                     <h2>{{post.title}}</h2>
                     {% if post.subtitle %} <h6>{{post.subtitle}}</h6> {% endif %}
-                    <div class="float-left">
-                        <div class="d-flex justify-content-start align-items-center text-muted">
+                    <div id="meta" class="float-lg-left float-md-left clearfix">
+                        <div class="d-flex justify-content-center align-items-center text-muted">
                             <div class="pr-3">
                                 <i class="fas fa-clock"></i> {{post.created_on|date:"Y-m-d"}} <br/>
                             </div>
@@ -43,8 +43,8 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-muted small float-right ml-3 mt-1">Time to read: {{post.get_readtime}}</p>
-                    <hr class="mb-5">
+                    <p class="text-muted small float-lg-right float-md-right text-center ml-3 my-3 my-sm-0">Time to read: {{post.get_readtime}}</p>
+                    <hr class="mb-4">
                     {{post.content|safe}}
                 </div>
             </div>
