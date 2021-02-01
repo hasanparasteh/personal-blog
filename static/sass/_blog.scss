@@ -1,0 +1,44 @@
+blockquote{
+    margin: 0 4rem;
+    margin-bottom: 4.5rem;
+    p{
+        text-align: justify;
+        padding: 0 15px;
+        margin: 1rem 0;
+        border-left: none;
+    }
+    &::before{
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f10d";
+        font-size: 2rem;
+    }
+    &::after{
+        float: right;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f10e";
+        font-size: 2rem;
+    }
+}
+
+p{
+    code{
+        display: block;
+        counter-increment: line;
+        line-height: 1.5rem;
+        padding: 5px 10px;
+        background-color: #282a36;
+        color: #ff79c6;
+        &::before{
+            content: counter(line);
+            display: inline-block;
+            width: 1.5em; /* Fixed width */
+            border-right: 1px solid #ddd;
+            padding: 0 .5em;
+            margin-right: .5em;
+            color: #6272a4;
+            -webkit-user-select: none;
+        }
+    }
+}

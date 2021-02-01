@@ -30,19 +30,21 @@
                 <div class="px-5 py-2">
                     <h2>{{post.title}}</h2>
                     {% if post.subtitle %} <h6>{{post.subtitle}}</h6> {% endif %}
-                    <div class="d-flex justify-content-start align-items-center text-muted py-3">
-                        <div class="pr-3">
-                            <i class="fas fa-clock"></i> {{post.created_on|date:"Y-m-d"}} <br/>
-                        </div>
-                        <div class="px-3">
-                            <i class="fas fa-user"></i> {{post.created_by.username}}
-                        </div>
-                        <div class="px-3">
-                            <i class="fas fa-code-branch"></i> <a class="text-muted" href="/category/{{post.category.slug}}">{{post.category}}</a>
+                    <div class="float-left">
+                        <div class="d-flex justify-content-start align-items-center text-muted">
+                            <div class="pr-3">
+                                <i class="fas fa-clock"></i> {{post.created_on|date:"Y-m-d"}} <br/>
+                            </div>
+                            <div class="px-3">
+                                <i class="fas fa-user"></i> {{post.created_by.username}}
+                            </div>
+                            <div class="px-3">
+                                <i class="fas fa-code-branch"></i> <a class="text-muted" href="/category/{{post.category.slug}}">{{post.category}}</a>
+                            </div>
                         </div>
                     </div>
                     <p class="text-muted small float-right ml-3 mt-1">Time to read: {{post.get_readtime}}</p>
-                    <hr>
+                    <hr class="mb-5">
                     {{post.content|safe}}
                 </div>
             </div>
