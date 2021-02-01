@@ -13,7 +13,8 @@ class PostTests(TestCase):
         self.post = Post(
             title="This is a test",
             slug="this-is-a-test",
-            author=self.author,
+            created_by=self.author,
+            updated_by=self.author,
             category=self.category,
             content="this is a test content",
             status=0,
