@@ -14,7 +14,11 @@
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{{request.path}}" />
-    <meta property="og:image" content="http://{{ request.META.HTTP_HOST }}/media/{{post.image}}" />
+    {% if post.image_img %}
+        <meta property="og:image" content="http://{{ request.META.HTTP_HOST }}/media/{{post.image_img}}" />
+    {% elif post.image_link %}
+        <meta property="og:image" content="{{post.image_link}}" />
+    {% endif %}
 {% endblock seo %}
 
 {% block content %}
