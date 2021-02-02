@@ -27,7 +27,8 @@ class PostAdmin(admin.ModelAdmin):
                         "slug",
                         "content",
                         "category",
-                        "image",
+                        "image_img",
+                        "image_link",
                         "status",
                         "keywords",
                     )

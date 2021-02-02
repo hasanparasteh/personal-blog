@@ -29,7 +29,8 @@ class Post(models.Model):
 
     keywords = models.CharField(max_length=255, null=True, blank=True)
     subtitle = models.CharField(max_length=255, blank=True, null=True)
-    image = models.ImageField(upload_to="posts/", blank=True, null=True)
+    image_img = models.ImageField(upload_to="posts/", blank=True, null=True)
+    image_link = models.URLField(max_length=255, blank=True, null=True)
     content = tinymce_models.HTMLField()
 
     updated_on = models.DateTimeField(auto_now=True)
